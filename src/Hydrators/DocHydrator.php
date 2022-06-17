@@ -12,7 +12,7 @@ class DocHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof Doc) {
+        if (! $node instanceof Doc) {
             throw new \Exception();
         }
 

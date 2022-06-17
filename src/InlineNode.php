@@ -6,5 +6,4 @@ namespace Karvaka\AdfToGfm;
 
 abstract class InlineNode extends Node
 {
-
 }

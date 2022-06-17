@@ -24,7 +24,8 @@ class Heading extends BlockNode
 
     public function toMarkdown(): string
     {
-        return str_repeat('#', $this->level) . ' ' . implode('',
+        return str_repeat('#', $this->level) . ' ' . implode(
+            '',
             array_map(fn (Node $node) => $node->toMarkdown(), $this->content())
         );
     }

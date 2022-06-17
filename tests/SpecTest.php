@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Karvaka\AdfToGfm\Converter;
 
-it('meets specification', function (string $gfm, string $adf, ) {
-    expect((new Converter)->convert($adf)->toMarkdown())->toBe($gfm);
+it('meets specification', function (string $gfm, string $adf) {
+    expect((new Converter())->convert($adf)->toMarkdown())->toBe($gfm);
 })->with('specs');
 
 dataset('specs', [

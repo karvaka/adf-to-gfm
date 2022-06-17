@@ -12,7 +12,7 @@ class TextHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof Text) {
+        if (! $node instanceof Text) {
             throw new \Exception();
         }
 
@@ -22,25 +22,30 @@ class TextHydrator implements HydratorInterface
 
         if (isset($schema->marks) && is_iterable($schema->marks)) {
             foreach ($schema->marks as $mark) {
-                if (!isset($mark->type)) {
+                if (! isset($mark->type)) {
                     continue;
                 }
 
                 switch ($mark->type) {
                     case 'code':
                         $node->setIsCode(true);
+
                         break;
                     case 'em':
                         $node->setIsItalic(true);
+
                         break;
                     case 'link':
                         $node->setLink($mark->attrs->href ?? '#', $mark->attrs->title ?? '');
+
                         break;
                     case 'strike':
                         $node->setIsStrikeThrough(true);
+
                         break;
                     case 'strong':
                         $node->setIsStrong(true);
+
                         break;
                     //case 'subsup':
                     // todo

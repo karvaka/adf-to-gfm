@@ -12,7 +12,7 @@ class HeadingHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof Heading) {
+        if (! $node instanceof Heading) {
             throw new \Exception();
         }
 

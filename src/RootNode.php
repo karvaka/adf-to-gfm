@@ -8,7 +8,8 @@ abstract class RootNode extends BlockNode
 {
     public function toMarkdown(): string
     {
-        return implode(self::BREAK . self::BREAK,
+        return implode(
+            self::BREAK . self::BREAK,
             array_map(fn (Node $node) => $node->toMarkdown(), $this->content())
         );
     }
@@ -16,7 +17,7 @@ abstract class RootNode extends BlockNode
     public function contains(): array
     {
         return [
-            BlockNode::class
+            BlockNode::class,
         ];
     }
 }

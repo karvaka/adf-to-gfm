@@ -17,6 +17,6 @@ class Converter
             $schema = json_decode($schema, false, flags: JSON_THROW_ON_ERROR);
         }
 
-        return (new NodeMapper)->createNodeFromSchema($schema);
+        return (new NodeMapper())->createNodeFromSchema($schema);
     }
 }
