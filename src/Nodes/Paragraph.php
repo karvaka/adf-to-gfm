@@ -15,7 +15,8 @@ class Paragraph extends BlockNode
 {
     public function toMarkdown(): string
     {
-        return implode('',
+        return implode(
+            '',
             array_map(fn (Node $node) => $node->toMarkdown(), $this->content())
         );
     }

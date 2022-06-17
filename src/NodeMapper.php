@@ -33,7 +33,7 @@ class NodeMapper
     {
         $type = $schema->type ?? throw new RuntimeException('Property [type] is required');
 
-        if (!array_key_exists($schema->type, $this->nodesMap)) {
+        if (! array_key_exists($schema->type, $this->nodesMap)) {
             throw new RuntimeException(sprintf('Unsupported node type [%s]', $type));
         }
 
@@ -41,7 +41,7 @@ class NodeMapper
 
         foreach ($this->hydratorsMap as $hydrator => $target) {
             if ($node::class === $target) {
-                (new $hydrator)->hydrate($node, $schema);
+                (new $hydrator())->hydrate($node, $schema);
             }
         }
 
@@ -59,7 +59,7 @@ class NodeMapper
         foreach ($schemas as $schema) {
             $node = $this->createNodeFromSchema($schema);
 
-            if (!$parent->canContain($node::class)) {
+            if (! $parent->canContain($node::class)) {
                 throw new RuntimeException(
                     sprintf('Node [%s] can not contain [%s]', $parent::class, $node::class)
                 );
