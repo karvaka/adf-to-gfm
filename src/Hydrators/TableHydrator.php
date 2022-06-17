@@ -12,7 +12,7 @@ class TableHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof Table) {
+        if (! $node instanceof Table) {
             throw new \Exception();
         }
 

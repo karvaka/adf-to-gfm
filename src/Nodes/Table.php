@@ -34,36 +34,38 @@ class Table extends BlockNode
         if ($this->hasHeader()) {
             $header = array_shift($content);
         } else {
-            $header = (new TableRow)->setContent(array_map(fn () => (new Text), $range));
+            $header = (new TableRow())->setContent(array_map(fn () => (new Text()), $range));
         }
 
-        $delimiter = (new TableRow)->setContent(array_map(fn () => (new Text)->setText('---'), $range));
+        $delimiter = (new TableRow())->setContent(array_map(fn () => (new Text())->setText('---'), $range));
 
         if ($this->isNumberColumnEnabled) {
-            $header = $header->prependContent((new Text)->setText('#'));
-            $delimiter = $delimiter->prependContent((new Text)->setText('---'));
+            $header = $header->prependContent((new Text())->setText('#'));
+            $delimiter = $delimiter->prependContent((new Text())->setText('---'));
             $content = array_map(
-                fn (int $index, BlockNode $node) => $node->prependContent((new Text)->setText((string)($index + 1))),
-                array_keys($content), $content
+                fn (int $index, BlockNode $node) => $node->prependContent((new Text())->setText((string)($index + 1))),
+                array_keys($content),
+                $content
             );
         }
 
         array_unshift($content, $delimiter);
         array_unshift($content, $header);
 
-        return implode(self::BREAK,
+        return implode(
+            self::BREAK,
             array_map(fn (Node $node) => $node->toMarkdown(), $content)
         );
     }
 
     public function hasHeader(): bool
     {
-        if (!$first = $this->content()[0] ?? null) {
+        if (! $first = $this->content()[0] ?? null) {
             return false;
         }
 
         foreach ($first->content() as $node) {
-            if (!is_a($node, TableHeader::class)) {
+            if (! is_a($node, TableHeader::class)) {
                 return false;
             }
         }
