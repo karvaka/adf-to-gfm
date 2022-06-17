@@ -15,12 +15,17 @@ class NodeMapper
         'heading' => Nodes\Heading::class,
         'paragraph' => Nodes\Paragraph::class,
         'rule' => Nodes\Rule::class,
+        'table' => Nodes\Table::class,
+        'tableCell' => Nodes\TableCell::class,
+        'tableHeader' => Nodes\TableHeader::class,
+        'tableRow' => Nodes\TableRow::class,
         'text' => Nodes\Text::class,
     ];
 
     private array $hydratorsMap = [
         Hydrators\DocHydrator::class => Nodes\Doc::class,
         Hydrators\HeadingHydrator::class => Nodes\Heading::class,
+        Hydrators\TableHydrator::class => Nodes\Table::class,
         Hydrators\TextHydrator::class => Nodes\Text::class,
     ];
 
@@ -32,7 +37,7 @@ class NodeMapper
             throw new RuntimeException(sprintf('Unsupported node type [%s]', $type));
         }
 
-        $node = new $this->nodesMap[$type]($type);
+        $node = new $this->nodesMap[$type];
 
         foreach ($this->hydratorsMap as $hydrator => $target) {
             if ($node::class === $target) {
@@ -41,7 +46,7 @@ class NodeMapper
         }
 
         if ($node instanceof BlockNode && isset($schema->content)) {
-            $node->withContent($this->createContentNodesFromSchemas($node, $schema->content));
+            $node->setContent($this->createContentNodesFromSchemas($node, $schema->content));
         }
 
         return $node;

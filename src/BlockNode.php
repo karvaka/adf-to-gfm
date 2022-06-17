@@ -8,14 +8,21 @@ abstract class BlockNode extends Node
 {
     private array $content = [];
 
-    public function withContent(array $content): static
+    public function setContent(array $content): static
     {
         $this->content = $content;
 
         return $this;
     }
 
-    protected function content(): array
+    public function prependContent(Node $node): static
+    {
+        array_unshift($this->content, $node);
+
+        return $this;
+    }
+
+    public function content(): array
     {
         return $this->content;
     }

@@ -283,4 +283,449 @@ ADF
 }
 ADF
     ],
+    'table without header' => [
+        <<<GFM
+|  |  |
+| --- | --- |
+| Row one, cell one | Row one, cell two |
+| Row two, cell one | Row two, cell two |
+| Row three, cell one | Row three, cell two |
+GFM,
+        <<<ADF
+{
+    "type": "table",
+    "attrs": {
+        "isNumberColumnEnabled": false,
+        "layout": "default"
+    },
+    "content": [
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+ADF
+    ],
+    'table with header' => [
+        <<<GFM
+| Header, cell one | Header, cell two |
+| --- | --- |
+| Row one, cell one | Row one, cell two |
+| Row two, cell one | Row two, cell two |
+| Row three, cell one | Row three, cell two |
+GFM,
+        <<<ADF
+{
+    "type": "table",
+    "attrs": {
+        "isNumberColumnEnabled": false,
+        "layout": "default"
+    },
+    "content": [
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableHeader",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Header, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableHeader",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Header, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+ADF
+    ],
+    'table with number column' => [
+        <<<GFM
+| # | Header, cell one | Header, cell two |
+| --- | --- | --- |
+| 1 | Row one, cell one | Row one, cell two |
+| 2 | Row two, cell one | Row two, cell two |
+| 3 | Row three, cell one | Row three, cell two |
+GFM,
+        <<<ADF
+{
+    "type": "table",
+    "attrs": {
+        "isNumberColumnEnabled": true,
+        "layout": "default"
+    },
+    "content": [
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableHeader",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Header, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableHeader",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Header, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row one, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row two, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "tableRow",
+            "content": [
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell one"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "tableCell",
+                    "attrs": {},
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Row three, cell two"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+ADF
+    ]
 ]);
