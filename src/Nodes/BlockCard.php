@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Karvaka\AdfToGfm\Nodes;
 
-use Karvaka\AdfToGfm\InlineNode;
+use Karvaka\AdfToGfm\BlockNode;
 
 /**
  * todo make spec tests
  */
-class InlineCard extends InlineNode
+class BlockCard extends BlockNode
 {
     private string $url = '#';
 
@@ -23,5 +23,10 @@ class InlineCard extends InlineNode
     public function toMarkdown(): string
     {
         return $this->url;
+    }
+
+    public function contains(): array
+    {
+        return [];
     }
 }

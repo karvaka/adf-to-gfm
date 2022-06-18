@@ -6,18 +6,18 @@ namespace Karvaka\AdfToGfm\Hydrators;
 
 use Karvaka\AdfToGfm\HydratorInterface;
 use Karvaka\AdfToGfm\Node;
-use Karvaka\AdfToGfm\Nodes\Emoji;
+use Karvaka\AdfToGfm\Nodes\Date;
 
-class EmojiHydrator implements HydratorInterface
+class DateHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (! $node instanceof Emoji) {
+        if (! $node instanceof Date) {
             throw new \Exception();
         }
 
-        if (isset($schema->attrs->shortName)) {
-            $node->setShortName($schema->attrs->text);
+        if (isset($schema->attrs->timestamp)) {
+            $node->setTimestamp(((int)$schema->attrs->timestamp) / 1000);
         }
 
         return $node;

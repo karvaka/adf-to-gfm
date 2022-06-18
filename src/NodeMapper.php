@@ -9,11 +9,14 @@ use RuntimeException;
 class NodeMapper
 {
     private array $nodesMap = [
+        'blockCard' => Nodes\BlockCard::class,
         'blockquote' => Nodes\Blockquote::class,
         'bulletList' => Nodes\BulletList::class,
         'codeBlock' => Nodes\CodeBlock::class,
+        'date' => Nodes\Date::class,
         'doc' => Nodes\Doc::class,
         'emoji' => Nodes\Emoji::class,
+        'expand' => Nodes\Expand::class,
         'hardBreak' => Nodes\HardBreak::class,
         'heading' => Nodes\Heading::class,
         'inlineCard' => Nodes\InlineCard::class,
@@ -26,6 +29,7 @@ class NodeMapper
         'panel' => Nodes\Panel::class,
         'paragraph' => Nodes\Paragraph::class,
         'rule' => Nodes\Rule::class,
+        'status' => Nodes\Status::class,
         'table' => Nodes\Table::class,
         'tableCell' => Nodes\TableCell::class,
         'tableHeader' => Nodes\TableHeader::class,
@@ -34,11 +38,18 @@ class NodeMapper
     ];
 
     private array $hydratorsMap = [
+        Hydrators\BlockCardHydrator::class => Nodes\BlockCard::class,
         Hydrators\CodeBlockHydrator::class => Nodes\CodeBlock::class,
+        Hydrators\DateHydrator::class => Nodes\Date::class,
         Hydrators\DocHydrator::class => Nodes\Doc::class,
         Hydrators\EmojiHydrator::class => Nodes\Emoji::class,
+        Hydrators\ExpandHydrator::class => Nodes\Expand::class,
         Hydrators\HeadingHydrator::class => Nodes\Heading::class,
+        Hydrators\InlineCardHydrator::class => Nodes\InlineCard::class,
+        Hydrators\MentionHydrator::class => Nodes\Mention::class,
         Hydrators\OrderedListHydrator::class => Nodes\OrderedList::class,
+        Hydrators\PanelHydrator::class => Nodes\Panel::class,
+        Hydrators\StatusHydrator::class => Nodes\Status::class,
         Hydrators\TableHydrator::class => Nodes\Table::class,
         Hydrators\TextHydrator::class => Nodes\Text::class,
     ];

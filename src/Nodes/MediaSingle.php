@@ -10,11 +10,13 @@ class MediaSingle extends BlockNode
 {
     public function toMarkdown(): string
     {
-        throw new \Exception(); // todo
+        return ''; // todo
     }
 
     public function contains(): array
     {
-        return [];
+        return [
+            Media::class,
+        ];
     }
 }

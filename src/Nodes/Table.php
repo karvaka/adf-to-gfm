@@ -8,6 +8,8 @@ use Karvaka\AdfToGfm\BlockNode;
 use Karvaka\AdfToGfm\Node;
 
 /**
+ * todo col/row spans
+ *
  * @link https://developer.atlassian.com/cloud/jira/platform/apis/document/nodes/table/
  */
 class Table extends BlockNode

@@ -8,8 +8,17 @@ use Karvaka\AdfToGfm\InlineNode;
 
 class Mention extends InlineNode
 {
+    private string $text = '';
+
+    public function setText(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
     public function toMarkdown(): string
     {
-        throw new \Exception(); // todo
+        return $this->text;
     }
 }

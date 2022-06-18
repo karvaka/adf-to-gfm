@@ -6,18 +6,18 @@ namespace Karvaka\AdfToGfm\Hydrators;
 
 use Karvaka\AdfToGfm\HydratorInterface;
 use Karvaka\AdfToGfm\Node;
-use Karvaka\AdfToGfm\Nodes\Emoji;
+use Karvaka\AdfToGfm\Nodes\Expand;
 
-class EmojiHydrator implements HydratorInterface
+class ExpandHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (! $node instanceof Emoji) {
+        if (! $node instanceof Expand) {
             throw new \Exception();
         }
 
-        if (isset($schema->attrs->shortName)) {
-            $node->setShortName($schema->attrs->text);
+        if (isset($schema->attrs->title)) {
+            $node->setTitle((string)$schema->attrs->title);
         }
 
         return $node;

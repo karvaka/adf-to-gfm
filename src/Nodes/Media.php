@@ -10,7 +10,7 @@ class Media extends BlockNode
 {
     public function toMarkdown(): string
     {
-        throw new \Exception(); // todo
+        return ''; // todo
     }
 
     public function contains(): array

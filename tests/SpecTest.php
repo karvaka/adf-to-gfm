@@ -135,6 +135,17 @@ GFM,
 }
 ADF,
     ],
+    'date' => [
+        'Jun 28 2022',
+        <<<'ADF'
+{
+    "type": "date",
+    "attrs": {
+        "timestamp": "1656374400000"
+    }
+}
+ADF
+    ],
     'doc' => [
         '',
         <<<'ADF'
@@ -146,7 +157,7 @@ ADF,
 ADF
     ],
     'emoji' => [
-        ':woozy_face:',
+        '🥴',
         <<<'ADF'
 {
     "type": "emoji",
@@ -256,6 +267,19 @@ ADF
             "text": "Heading 6"
         }
     ]
+}
+ADF
+    ],
+    'mention' => [
+        '@Mention',
+        <<<'ADF'
+{
+    "type": "mention",
+    "attrs": {
+        "id": "123123123",
+        "text": "@Mention",
+        "accessLevel": ""
+    }
 }
 ADF
     ],
