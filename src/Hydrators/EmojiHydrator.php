@@ -12,7 +12,7 @@ class EmojiHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof Emoji) {
+        if (! $node instanceof Emoji) {
             throw new \Exception();
         }
 
