@@ -25,10 +25,12 @@ class OrderedList extends BlockNode
 
     public function toMarkdown(): string
     {
-        return implode(self::BREAK,
+        return implode(
+            self::BREAK,
             array_map(
                 fn (Node $node, int $order) => sprintf('%s. %s', $order, $node->toMarkdown()),
-                $this->content(), range($this->order, count($this->content()))
+                $this->content(),
+                range($this->order, count($this->content()))
             )
         );
     }
@@ -40,4 +42,3 @@ class OrderedList extends BlockNode
         ];
     }
 }
-

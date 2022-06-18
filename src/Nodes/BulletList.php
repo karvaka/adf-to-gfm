@@ -16,7 +16,8 @@ class BulletList extends BlockNode
 {
     public function toMarkdown(): string
     {
-        return implode(self::BREAK,
+        return implode(
+            self::BREAK,
             array_map(fn (Node $node) => sprintf('- %s', $node->toMarkdown()), $this->content())
         );
     }

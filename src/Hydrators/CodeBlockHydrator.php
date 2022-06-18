@@ -12,7 +12,7 @@ class CodeBlockHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof CodeBlock) {
+        if (! $node instanceof CodeBlock) {
             throw new \Exception();
         }
 
