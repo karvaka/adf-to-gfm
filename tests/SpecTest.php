@@ -145,6 +145,18 @@ ADF,
 }
 ADF
     ],
+    'emoji' => [
+        ':woozy_face:',
+        <<<'ADF'
+{
+    "type": "emoji",
+    "attrs": {
+        "shortName": ":woozy_face:",
+        "text": "🥴"
+    }
+}
+ADF
+    ],
     'heading 1' => [
         '# Heading 1',
         <<<'ADF'

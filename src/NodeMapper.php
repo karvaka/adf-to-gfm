@@ -36,6 +36,7 @@ class NodeMapper
     private array $hydratorsMap = [
         Hydrators\CodeBlockHydrator::class => Nodes\CodeBlock::class,
         Hydrators\DocHydrator::class => Nodes\Doc::class,
+        Hydrators\EmojiHydrator::class => Nodes\Emoji::class,
         Hydrators\HeadingHydrator::class => Nodes\Heading::class,
         Hydrators\OrderedListHydrator::class => Nodes\OrderedList::class,
         Hydrators\TableHydrator::class => Nodes\Table::class,
