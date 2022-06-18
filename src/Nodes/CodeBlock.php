@@ -28,7 +28,7 @@ class CodeBlock extends BlockNode
         return implode(self::BREAK, [
             '```' . $this->language,
             ...array_map(fn (Node $node) => $node->toMarkdown(), $content),
-            '```'
+            '```',
         ]);
     }
 

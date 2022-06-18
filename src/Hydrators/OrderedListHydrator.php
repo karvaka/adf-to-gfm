@@ -12,7 +12,7 @@ class OrderedListHydrator implements HydratorInterface
 {
     public function hydrate(Node $node, object $schema): Node
     {
-        if (!$node instanceof OrderedList) {
+        if (! $node instanceof OrderedList) {
             throw new \Exception();
         }
 
