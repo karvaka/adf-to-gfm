@@ -14,7 +14,8 @@ class TableCell extends BlockNode
 {
     public function toMarkdown(): string
     {
-        return implode(self::BREAK,
+        return implode(
+            self::BREAK,
             array_map(fn (Node $node) => $node->toMarkdown(), $this->content())
         );
     }

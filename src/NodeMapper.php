@@ -50,7 +50,7 @@ class NodeMapper
             throw new RuntimeException(sprintf('Unsupported node type [%s]', $type));
         }
 
-        $node = new $this->nodesMap[$type];
+        $node = new $this->nodesMap[$type]();
 
         foreach ($this->hydratorsMap as $hydrator => $target) {
             if ($node::class === $target) {

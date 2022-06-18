@@ -14,10 +14,13 @@ class TableRow extends BlockNode
 {
     public function toMarkdown(): string
     {
-        return sprintf('| %s |',
-            implode(' | ',
+        return sprintf(
+            '| %s |',
+            implode(
+                ' | ',
                 array_map(
-                    fn (Node $node) => $node->toMarkdown(), $this->content()
+                    fn (Node $node) => $node->toMarkdown(),
+                    $this->content()
                 )
             )
         );
