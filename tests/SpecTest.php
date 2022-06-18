@@ -10,12 +10,12 @@ it('meets specification', function (string $gfm, string $adf) {
 
 dataset('specs', [
    'blockquote' => [
-       <<<GFM
+       <<<'GFM'
 > Simplicity is the ultimate sophistication. - Leonardo da Vinci
 >
 > Well begun is half done. - Aristotle
 GFM,
-       <<<ADF
+       <<<'ADF'
 {
     "type": "blockquote",
     "content": [
@@ -41,9 +41,103 @@ GFM,
 }
 ADF
    ],
+    'bulletList' => [
+        <<<'GFM'
+- Leonardo
+- Raphael
+- Donatello
+- Michelangelo
+GFM,
+        <<<'ADF'
+{
+    "type": "bulletList",
+    "content": [
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Leonardo"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Raphael"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Donatello"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Michelangelo"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+ADF
+    ],
+    'codeBlock' => [
+        <<<'GFM'
+```php
+git status
+git add
+git commit
+```
+GFM,
+        <<<'ADF'
+{
+    "type": "codeBlock",
+    "attrs": {
+        "language": "php"
+    },
+    "content": [
+        {
+            "type": "text",
+            "text": "git status\ngit add\ngit commit"
+        }
+    ]
+}
+ADF,
+    ],
     'doc' => [
         '',
-        <<<ADF
+        <<<'ADF'
 {
     "version": 1,
     "type": "doc",
@@ -53,7 +147,7 @@ ADF
     ],
     'heading 1' => [
         '# Heading 1',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -70,7 +164,7 @@ ADF
     ],
     'heading 2' => [
         '## Heading 2',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -87,7 +181,7 @@ ADF
     ],
     'heading 3' => [
         '### Heading 3',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -104,7 +198,7 @@ ADF
     ],
     'heading 4' => [
         '#### Heading 4',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -121,7 +215,7 @@ ADF
     ],
     'heading 5' => [
         '##### Heading 5',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -138,7 +232,7 @@ ADF
     ],
     'heading 6' => [
         '###### Heading 6',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "heading",
     "attrs": {
@@ -153,9 +247,80 @@ ADF
 }
 ADF
     ],
+    'orderedList' => [
+        <<<'ADF'
+1. Leonardo
+2. Raphael
+3. Donatello
+4. Michelangelo
+ADF,
+        <<<'GFM'
+{
+    "type": "orderedList",
+    "content": [
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Leonardo"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Raphael"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Donatello"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "listItem",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Michelangelo"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+GFM
+    ],
     'paragraph with text' => [
         'Some text goes here.',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "paragraph",
     "content": [
@@ -177,7 +342,7 @@ ADF
     ],
     'rule' => [
         '* * *',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "rule"
 }
@@ -185,7 +350,7 @@ ADF
     ],
     'text' => [
         'Some text goes here.',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some text goes here."
@@ -194,7 +359,7 @@ ADF
     ],
     'text code' => [
         '`Some inline code goes here.`',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some inline code goes here.",
@@ -208,7 +373,7 @@ ADF
     ],
     'text em' => [
         '*Some italic text goes here.*',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some italic text goes here.",
@@ -222,7 +387,7 @@ ADF
     ],
     'text link' => [
         '[Some website goes here.](https://karvaka.com/)',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some website goes here.",
@@ -239,7 +404,7 @@ ADF
     ],
     'text link with title' => [
         '[Some website goes here.](https://karvaka.com/ "Click to visit")',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some website goes here.",
@@ -257,7 +422,7 @@ ADF
     ],
     'text strike' => [
         '~~Some strike text goes here.~~',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some strike text goes here.",
@@ -271,7 +436,7 @@ ADF
     ],
     'text strong' => [
         '**Some bold text goes here.**',
-        <<<ADF
+        <<<'ADF'
 {
     "type": "text",
     "text": "Some bold text goes here.",
@@ -284,14 +449,14 @@ ADF
 ADF
     ],
     'table without header' => [
-        <<<GFM
+        <<<'GFM'
 |  |  |
 | --- | --- |
 | Row one, cell one | Row one, cell two |
 | Row two, cell one | Row two, cell two |
 | Row three, cell one | Row three, cell two |
 GFM,
-        <<<ADF
+        <<<'ADF'
 {
     "type": "table",
     "attrs": {
@@ -409,14 +574,14 @@ GFM,
 ADF
     ],
     'table with header' => [
-        <<<GFM
+        <<<'GFM'
 | Header, cell one | Header, cell two |
 | --- | --- |
 | Row one, cell one | Row one, cell two |
 | Row two, cell one | Row two, cell two |
 | Row three, cell one | Row three, cell two |
 GFM,
-        <<<ADF
+        <<<'ADF'
 {
     "type": "table",
     "attrs": {
@@ -569,14 +734,14 @@ GFM,
 ADF
     ],
     'table with number column' => [
-        <<<GFM
+        <<<'GFM'
 | # | Header, cell one | Header, cell two |
 | --- | --- | --- |
 | 1 | Row one, cell one | Row one, cell two |
 | 2 | Row two, cell one | Row two, cell two |
 | 3 | Row three, cell one | Row three, cell two |
 GFM,
-        <<<ADF
+        <<<'ADF'
 {
     "type": "table",
     "attrs": {

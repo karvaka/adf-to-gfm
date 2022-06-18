@@ -10,9 +10,20 @@ class NodeMapper
 {
     private array $nodesMap = [
         'blockquote' => Nodes\Blockquote::class,
+        'bulletList' => Nodes\BulletList::class,
+        'codeBlock' => Nodes\CodeBlock::class,
         'doc' => Nodes\Doc::class,
+        'emoji' => Nodes\Emoji::class,
         'hardBreak' => Nodes\HardBreak::class,
         'heading' => Nodes\Heading::class,
+        'inlineCard' => Nodes\InlineCard::class,
+        'listItem' => Nodes\ListItem::class,
+        'media' => Nodes\Media::class,
+        'mediaGroup' => Nodes\MediaGroup::class,
+        'mediaSingle' => Nodes\MediaSingle::class,
+        'mention' => Nodes\Mention::class,
+        'orderedList' => Nodes\OrderedList::class,
+        'panel' => Nodes\Panel::class,
         'paragraph' => Nodes\Paragraph::class,
         'rule' => Nodes\Rule::class,
         'table' => Nodes\Table::class,
@@ -23,8 +34,10 @@ class NodeMapper
     ];
 
     private array $hydratorsMap = [
+        Hydrators\CodeBlockHydrator::class => Nodes\CodeBlock::class,
         Hydrators\DocHydrator::class => Nodes\Doc::class,
         Hydrators\HeadingHydrator::class => Nodes\Heading::class,
+        Hydrators\OrderedListHydrator::class => Nodes\OrderedList::class,
         Hydrators\TableHydrator::class => Nodes\Table::class,
         Hydrators\TextHydrator::class => Nodes\Text::class,
     ];
