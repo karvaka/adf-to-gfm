@@ -131,8 +131,7 @@ git add
 git commit
 ```
 GFM,
-        <<<'ADF'
-{
+        '{
     "type": "codeBlock",
     "attrs": {
         "language": "php"
@@ -143,8 +142,7 @@ GFM,
             "text": "git status\ngit add\ngit commit"
         }
     ]
-}
-ADF,
+}',
     ],
     'date' => [
         'Jun 28 2022',
