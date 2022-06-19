@@ -7,9 +7,6 @@ namespace Karvaka\AdfToGfm\Nodes;
 use Karvaka\AdfToGfm\BlockNode;
 use Karvaka\AdfToGfm\Node;
 
-/**
- * todo make spec tests
- */
 class Expand extends BlockNode
 {
     public string $title = '';

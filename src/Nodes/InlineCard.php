@@ -6,9 +6,6 @@ namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\InlineNode;
 
-/**
- * todo make spec tests
- */
 class InlineCard extends InlineNode
 {
     private string $url = '#';

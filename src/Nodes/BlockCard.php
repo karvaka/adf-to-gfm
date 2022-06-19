@@ -6,9 +6,6 @@ namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\BlockNode;
 
-/**
- * todo make spec tests
- */
 class BlockCard extends BlockNode
 {
     private string $url = '#';

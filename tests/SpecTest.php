@@ -9,6 +9,17 @@ it('meets specification', function (string $gfm, string $adf) {
 })->with('specs');
 
 dataset('specs', [
+    'blockCard' => [
+        'https://karvaka.com',
+        <<<'ADF'
+{
+  "type": "blockCard",
+  "attrs": {
+    "url": "https:\/\/karvaka.com"
+  }
+}
+ADF
+    ],
    'blockquote' => [
        <<<'GFM'
 > Simplicity is the ultimate sophistication. - Leonardo da Vinci
@@ -168,6 +179,33 @@ ADF
 }
 ADF
     ],
+    'expand' => [
+        <<<'GFM'
+<details>
+  <summary>Expandable panel</summary>
+  With content
+</details>
+GFM,
+        <<<'ADF'
+{
+  "type": "expand",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "With content"
+        }
+      ]
+    }
+  ],
+  "attrs": {
+    "title": "Expandable panel"
+  }
+}
+ADF
+    ],
     'heading 1' => [
         '# Heading 1',
         <<<'ADF'
@@ -267,6 +305,17 @@ ADF
             "text": "Heading 6"
         }
     ]
+}
+ADF
+    ],
+    'inlineCard' => [
+        'https://karvaka.com',
+        <<<'ADF'
+{
+  "type": "inlineCard",
+  "attrs": {
+    "url": "https:\/\/karvaka.com"
+  }
 }
 ADF
     ],
@@ -481,6 +530,20 @@ ADF
             "type": "strong"
         }
     ]
+}
+ADF
+    ],
+    'status' => [
+        '⚪ **NEUTRAL**',
+        <<<'ADF'
+{
+  "type": "status",
+  "attrs": {
+    "text": "NEUTRAL",
+    "color": "neutral",
+    "localId": "179e31c7-571b-40e5-a67a-88b62606a6af",
+    "style": ""
+  }
 }
 ADF
     ],

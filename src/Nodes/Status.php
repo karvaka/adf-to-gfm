@@ -6,9 +6,6 @@ namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\InlineNode;
 
-/**
- * todo make spec tests
- */
 class Status extends InlineNode
 {
     private string $text = '';
@@ -43,10 +40,13 @@ class Status extends InlineNode
 
     public function toMarkdown(): string
     {
+        $content = [];
         if ($emoji = $this->pickColorEmoji($this->color)) {
-            return (new Emoji())->setShortName($emoji)->toMarkdown() . ' ' . $this->text;
+            $content[] = (new Emoji())->setShortName($emoji)->toMarkdown();
         }
 
-        return $this->text;
+        $content[] = (new Text())->setText($this->text)->setIsStrong(true)->toMarkdown();
+
+        return implode(' ', $content);
     }
 }
