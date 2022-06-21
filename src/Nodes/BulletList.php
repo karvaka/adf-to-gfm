@@ -18,7 +18,7 @@ class BulletList extends BlockNode
     {
         return implode(
             self::BREAK,
-            array_map(fn (ListItem $node) => str_repeat('  ', ($this->depth - 1)) .
+            array_map(fn (ListItem $node) => str_repeat(self::INDENT, ($this->depth - 1)) .
                 sprintf('- %s', $node->setDepth($this->depth)->toMarkdown()), $this->content())
         );
     }

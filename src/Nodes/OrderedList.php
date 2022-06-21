@@ -29,7 +29,7 @@ class OrderedList extends BlockNode
             self::BREAK,
             array_map(
                 fn (ListItem $node, int $order) =>
-                    str_repeat('  ', ($this->depth - 1)) .
+                    str_repeat(self::INDENT, ($this->depth - 1)) .
                     sprintf('%s. %s', $order, $node->setDepth($this->depth)->toMarkdown()),
                 $this->content(),
                 range($this->order, count($this->content()))

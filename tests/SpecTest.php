@@ -126,13 +126,13 @@ ADF
     'nested lists' => [
         <<<'GFM'
 - First level item one
-  1. Nested numbered list item one
-  2. Nested numbered list item two
-    - Nested bullet list item one
-    - Nested bullet list item two
-      - More nested bullet list item one
-      - More nested bullet list item two
-  3. Nested numbered list item three
+    1. Nested numbered list item one
+    2. Nested numbered list item two
+        - Nested bullet list item one
+        - Nested bullet list item two
+            - More nested bullet list item one
+            - More nested bullet list item two
+    3. Nested numbered list item three
 - First level item two
 GFM,
         <<<'ADF'
