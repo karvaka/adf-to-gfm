@@ -19,6 +19,6 @@ class Mention extends InlineNode
 
     public function toMarkdown(): string
     {
-        return (new Text())->setText($this->text)->setIsStrong(true)->toMarkdown();
+        return (new Text())->setText($this->text)->setIsCode(true)->toMarkdown();
     }
 }
