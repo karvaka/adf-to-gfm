@@ -5,20 +5,21 @@ declare(strict_types=1);
 namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\BlockNode;
-use Karvaka\AdfToGfm\Node;
+use Karvaka\AdfToGfm\HasDepth;
 
 /**
  * @link https://developer.atlassian.com/cloud/jira/platform/apis/document/nodes/bulletList/
- *
- * todo nested lists
  */
 class BulletList extends BlockNode
 {
+    use HasDepth;
+
     public function toMarkdown(): string
     {
         return implode(
             self::BREAK,
-            array_map(fn (Node $node) => sprintf('- %s', $node->toMarkdown()), $this->content())
+            array_map(fn (ListItem $node) => str_repeat('  ', ($this->depth - 1)) .
+                sprintf('- %s', $node->setDepth($this->depth)->toMarkdown()), $this->content())
         );
     }
 

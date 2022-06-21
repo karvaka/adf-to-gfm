@@ -5,15 +5,23 @@ declare(strict_types=1);
 namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\BlockNode;
+use Karvaka\AdfToGfm\HasDepth;
 use Karvaka\AdfToGfm\Node;
 
 class ListItem extends BlockNode
 {
+    use HasDepth;
+
     public function toMarkdown(): string
     {
         return implode(
             self::BREAK,
-            array_map(fn (Node $node) => $node->toMarkdown(), $this->content())
+            array_map(function (Node $node) {
+                if ($node instanceof BulletList || $node instanceof OrderedList) {
+                    return $node->setDepth($this->depth + 1)->toMarkdown();
+                }
+                return $node->toMarkdown();
+            }, $this->content())
         );
     }
 

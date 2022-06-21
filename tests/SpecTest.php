@@ -123,6 +123,167 @@ GFM,
 }
 ADF
     ],
+    'nested lists' => [
+        <<<'GFM'
+- First level item one
+  1. Nested numbered list item one
+  2. Nested numbered list item two
+    - Nested bullet list item one
+    - Nested bullet list item two
+      - More nested bullet list item one
+      - More nested bullet list item two
+  3. Nested numbered list item three
+- First level item two
+GFM,
+        <<<'ADF'
+{
+  "type": "bulletList",
+  "content": [
+    {
+      "type": "listItem",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "First level item one"
+            }
+          ]
+        },
+        {
+          "type": "orderedList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Nested numbered list item one"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Nested numbered list item two"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulletList",
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Nested bullet list item one"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Nested bullet list item two"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "bulletList",
+                          "content": [
+                            {
+                              "type": "listItem",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "More nested bullet list item one"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "listItem",
+                              "content": [
+                                {
+                                  "type": "paragraph",
+                                  "content": [
+                                    {
+                                      "type": "text",
+                                      "text": "More nested bullet list item two"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Nested numbered list item three"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listItem",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "First level item two"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+ADF,
+    ],
     'codeBlock' => [
         <<<'GFM'
 ```php

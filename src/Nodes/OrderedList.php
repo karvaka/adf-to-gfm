@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Karvaka\AdfToGfm\Nodes;
 
 use Karvaka\AdfToGfm\BlockNode;
-use Karvaka\AdfToGfm\Node;
+use Karvaka\AdfToGfm\HasDepth;
 
 /**
  * @link https://developer.atlassian.com/cloud/jira/platform/apis/document/nodes/orderedList/
- *
- * todo nested lists
  */
 class OrderedList extends BlockNode
 {
+    use HasDepth;
+
     private int $order = 1;
 
     public function setOrder(int $order): static
@@ -28,7 +28,9 @@ class OrderedList extends BlockNode
         return implode(
             self::BREAK,
             array_map(
-                fn (Node $node, int $order) => sprintf('%s. %s', $order, $node->toMarkdown()),
+                fn (ListItem $node, int $order) =>
+                    str_repeat('  ', ($this->depth - 1)) .
+                    sprintf('%s. %s', $order, $node->setDepth($this->depth)->toMarkdown()),
                 $this->content(),
                 range($this->order, count($this->content()))
             )
