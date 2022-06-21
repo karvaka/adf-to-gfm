@@ -20,6 +20,7 @@ class ListItem extends BlockNode
                 if ($node instanceof BulletList || $node instanceof OrderedList) {
                     return $node->setDepth($this->depth + 1)->toMarkdown();
                 }
+
                 return $node->toMarkdown();
             }, $this->content())
         );
